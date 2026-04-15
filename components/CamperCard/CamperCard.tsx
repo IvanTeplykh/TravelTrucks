@@ -12,7 +12,7 @@ export default function CamperCard({ camper }: Props) {
     <div className={css.card}>
       <div className={css.imageWrapper}>
         <img
-          src={camper.gallery?.[0]?.thumb || camper.gallery?.[0]?.original || "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"}
+          src={camper.coverImage || "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg"}
           alt={camper.name}
           className={css.image}
         />
@@ -26,7 +26,7 @@ export default function CamperCard({ camper }: Props) {
         <div className={css.subHeader}>
           <div className={css.ratingLocation}>
             <span className={css.rating}>
-              ★ {camper.rating} ({camper.reviews?.length || 0} Reviews)
+              ★ {camper.rating} ({camper.totalReviews || 0} Reviews)
             </span>
             <span className={css.location}>📍 {camper.location}</span>
           </div>
@@ -37,13 +37,13 @@ export default function CamperCard({ camper }: Props) {
         <div className={css.features}>
           <div className={css.featureBadge}>🚐 {camper.transmission}</div>
           <div className={css.featureBadge}>⛽ {camper.engine}</div>
-          {camper.AC && <div className={css.featureBadge}>❄️ AC</div>}
-          {camper.kitchen && <div className={css.featureBadge}>🍳 Kitchen</div>}
-          {camper.bathroom && <div className={css.featureBadge}>🚿 Bathroom</div>}
-          {camper.radio && <div className={css.featureBadge}>📻 Radio</div>}
+          {camper.amenities?.includes("ac") && <div className={css.featureBadge}>❄️ AC</div>}
+          {camper.amenities?.includes("kitchen") && <div className={css.featureBadge}>🍳 Kitchen</div>}
+          {camper.amenities?.includes("bathroom") && <div className={css.featureBadge}>🚿 Bathroom</div>}
+          {camper.amenities?.includes("radio") && <div className={css.featureBadge}>📻 Radio</div>}
         </div>
 
-        <Link href={`/catalog/${camper.id}`} className={css.showMoreBtn}>
+        <Link href={`/catalog/${camper.id}`} className={css.showMoreBtn} target="_blank" rel="noopener noreferrer">
           Show more
         </Link>
       </div>

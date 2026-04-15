@@ -69,7 +69,7 @@
   transition: border-color 0.2s;
 }
 
-.featureBtn:hover {
+.featureBtn:hover, .active {
   border-color: var(--brand-color);
 }
 

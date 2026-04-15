@@ -12,10 +12,21 @@ const validationSchema = Yup.object().shape({
   comment: Yup.string(),
 });
 
-export default function BookingForm() {
+interface BookingFormProps {
+  onSubmit?: (values: any) => void;
+  isLoading?: boolean;
+}
+
+export default function BookingForm({ onSubmit, isLoading }: BookingFormProps) {
   const handleSubmit = (values: any, { resetForm }: any) => {
-    toast.success("Booking request sent successfully!");
-    resetForm();
+    if (onSubmit) {
+      onSubmit(values);
+      // Wait for success? Actually parent resets form after or we just reset
+      resetForm();
+    } else {
+      toast.success("Booking request sent successfully!");
+      resetForm();
+    }
   };
 
   return (
@@ -50,8 +61,8 @@ export default function BookingForm() {
             <Field as="textarea" name="comment" placeholder="Comment" className={css.textarea} />
           </div>
 
-          <button type="submit" className={css.submitBtn}>
-            Send
+          <button type="submit" className={css.submitBtn} disabled={isLoading}>
+            {isLoading ? "Sending..." : "Send"}
           </button>
         </Form>
       </Formik>
