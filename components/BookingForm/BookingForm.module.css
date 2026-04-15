@@ -1,0 +1,70 @@
+.formContainer {
+  padding: 44px 24px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: var(--background);
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-text);
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--secondary-text);
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fieldWrapper {
+  position: relative;
+}
+
+.input, .textarea {
+  width: 100%;
+  padding: 18px;
+  background-color: var(--background);
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--primary-text);
+  border-radius: 10px;
+  outline: none;
+  background-color: #f7f7f7;
+}
+
+.textarea {
+  resize: none;
+  min-height: 114px;
+}
+
+.error {
+  color: var(--brand-color);
+  font-size: 12px;
+  padding-left: 18px;
+  margin-top: 4px;
+}
+
+.submitBtn {
+  margin-top: 10px;
+  padding: 16px 60px;
+  background-color: var(--brand-color);
+  color: #fff;
+  border-radius: 200px;
+  font-weight: 500;
+  font-size: 16px;
+  width: fit-content;
+  transition: background-color 0.2s;
+}
+
+.submitBtn:hover {
+  background-color: var(--brand-hover);
+}

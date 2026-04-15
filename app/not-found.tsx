@@ -1,17 +1,17 @@
 import Link from "next/link";
 import css from "./Home.module.css";
-import { Metadata } from 'next';
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Not Found | NoteHub',
-  description: 'Sorry, the page you are looking for does not exist.',
+  title: "Not Found | TravelTrucks",
+  description: "Sorry, the page you are looking for does not exist.",
   openGraph: {
-    title: 'Not Found | NoteHub',
-    description: 'Sorry, the page you are looking for does not exist.',
-    url: 'https://example.com/not-found',
+    title: "Not Found | TravelTrucks",
+    description: "Sorry, the page you are looking for does not exist.",
+    url: "https://example.com/not-found",
     images: [
       {
-        url: 'https://ac.goit.global/fullstack/react/notehub-og-meta.jpg',
+        url: "https://ac.goit.global/fullstack/react/traveltrucks-og-meta.jpg",
       },
     ],
   },

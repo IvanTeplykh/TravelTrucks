@@ -1,37 +1,39 @@
 .header {
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f8f9fa;
+  padding: 24px 0;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 64px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #333;
-  color: white;
+  justify-content: space-between;
 }
 
-.header a {
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  color: #101828;
   text-decoration: none;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-family: inherit;
 }
 
-.header a:hover {
-  color: #ddd;
-}
-
-.navigation {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+.nav {
   display: flex;
-  gap: 1rem;
+  gap: 32px;
 }
 
-.navigation li a {
+.link {
+  font-size: 16px;
+  font-weight: 500;
+  color: #101828;
   text-decoration: none;
-  color: white;
-  font-size: 1rem;
+  transition: color 0.2s ease;
 }
 
-.navigation li a:hover {
-  color: #ddd;
+.link:hover {
+  color: #d84343; /* Adding a hover state, commonly red or branding color in GoIT projects */
 }

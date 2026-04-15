@@ -1,0 +1,90 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.locationGroup {
+  margin-bottom: 32px;
+}
+
+.label {
+  display: block;
+  font-size: 16px;
+  color: var(--secondary-text);
+  margin-bottom: 8px;
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  padding: 18px 18px 18px 44px;
+  background-color: var(--background);
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  color: var(--primary-text);
+  background-color: #f7f7f7;
+  outline: none;
+}
+
+.filtersTitle {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-text);
+  margin-bottom: 14px;
+}
+
+.groupTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-text);
+  margin-bottom: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-color);
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.featureBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 96px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-text);
+  transition: border-color 0.2s;
+}
+
+.featureBtn:hover {
+  border-color: var(--brand-color);
+}
+
+.searchBtn {
+  width: 160px;
+  padding: 16px;
+  background-color: var(--brand-color);
+  color: #fff;
+  border-radius: 200px;
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 32px;
+  transition: background-color 0.2s;
+}
+
+.searchBtn:hover {
+  background-color: var(--brand-hover);
+}
