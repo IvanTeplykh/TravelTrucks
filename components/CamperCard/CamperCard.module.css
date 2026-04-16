@@ -95,15 +95,17 @@
 }
 
 .showMoreBtn {
-  display: inline-block;
-  padding: 16px 40px;
-  background-color: var(--brand-color);
-  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 200px;
+  width: 173px;
+  height: 56px;
+  background-color: var(--brand-color);
+  color: var(--background);
   font-weight: 500;
   font-size: 16px;
   text-align: center;
-  width: fit-content;
   margin-top: auto;
   transition: background-color 0.2s;
 }

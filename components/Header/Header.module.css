@@ -1,6 +1,6 @@
 .header {
-  border-bottom: 1px solid #e0e0e0;
-  background-color: #f8f9fa;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--background-footer);
   padding: 24px 0;
 }
 
@@ -10,30 +10,37 @@
   padding: 0 64px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  position: relative;
 }
 
 .logo {
   font-size: 24px;
   font-weight: 700;
-  color: #101828;
+  color: var(--primary-text);
   text-decoration: none;
   font-family: inherit;
+}
+
+.logoText2 {
+  color: var(--secondary-text);
 }
 
 .nav {
   display: flex;
   gap: 32px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .link {
   font-size: 16px;
   font-weight: 500;
-  color: #101828;
+  color: var(--primary-text);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.link:hover {
-  color: #d84343; /* Adding a hover state, commonly red or branding color in GoIT projects */
+.link:hover, .active {
+  color: var(--brand-color);
 }

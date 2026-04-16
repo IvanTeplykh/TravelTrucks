@@ -8,7 +8,7 @@
   flex: 1;
   display: flex;
   align-items: center;
-  background-image: linear-gradient(rgba(16, 24, 40, 0.6), rgba(16, 24, 40, 0.6)), url('https://ac.goit.global/fullstack/react/notehub-og-meta.jpg'); /* Need a real hero image later */
+  background-image: linear-gradient(rgba(16, 24, 40, 0.2), rgba(16, 24, 40, 0.2)), url('/Picture.png');
   background-size: cover;
   background-position: center;
   padding: 64px;
@@ -21,29 +21,41 @@
 }
 
 .title {
+  font-family: inherit;
   font-size: 48px;
   font-weight: 600;
-  color: #f7f7f7;
+  line-height: 67%;
+  color: var(--background-footer);
   margin-bottom: 16px;
 }
 
 .description {
+  font-family: inherit;
   font-size: 24px;
-  color: #f7f7f7;
+  font-weight: 600;
+  line-height: 133%;
+  color: var(--background-footer);
   margin-bottom: 40px;
 }
 
 .button {
-  display: inline-block;
-  padding: 16px 50px;
-  background-color: #e44848;
-  color: #ffffff;
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 200px;
+  width: 173px;
+  height: 56px;
+  background-color: var(--brand-color);
+  color: var(--background);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
   text-decoration: none;
   transition: background-color 0.2s ease;
 }
 
 .button:hover {
-  background-color: #d84343;
+  background-color: var(--brand-hover);
 }

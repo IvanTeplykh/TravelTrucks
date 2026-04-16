@@ -38,7 +38,7 @@
   color: var(--primary-text);
   border-radius: 10px;
   outline: none;
-  background-color: #f7f7f7;
+  background-color: var(--background-footer);
 }
 
 .textarea {
@@ -54,14 +54,17 @@
 }
 
 .submitBtn {
-  margin-top: 10px;
-  padding: 16px 60px;
-  background-color: var(--brand-color);
-  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 200px;
+  width: 173px;
+  height: 56px;
+  margin-top: 10px;
+  background-color: var(--brand-color);
+  color: var(--background);
   font-weight: 500;
   font-size: 16px;
-  width: fit-content;
   transition: background-color 0.2s;
 }
 

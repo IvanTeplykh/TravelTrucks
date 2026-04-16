@@ -1,13 +1,14 @@
 :root {
   --primary-text: #101828;
   --secondary-text: #475467;
-  --background: #ffffff;
-  --brand-color: #E44848;
-  --brand-hover: #D84343;
+  --light-text: #6C717B;
+  --background: #FFFFFF;
+  --brand-color: #829B91;
+  --brand-hover: #6D7B75;
   --badge-bg: #F2F4F7;
   --rating-color: #FFC531;
-  --border-color: #E2E8F0;
-  --background-footer: #F8F9FA;
+  --border-color: #DADDE1;
+  --background-footer: #F7F7F7;
 }
 
 body {
