@@ -2,7 +2,9 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import LocationInputWithMap from "../LocationInputWithMap/LocationInputWithMap";
 import css from "./FilterSidebar.module.css";
+import { IoMdClose } from "react-icons/io";
 
 export default function FilterSidebar() {
   const router = useRouter();
@@ -10,15 +12,10 @@ export default function FilterSidebar() {
 
   const [location, setLocation] = useState(searchParams.get("location") || "");
   const [form, setForm] = useState(searchParams.get("form") || "");
-  const [transmission, setTransmission] = useState(searchParams.get("transmission") || "");
+  const [transmission, setTransmission] = useState(
+    searchParams.get("transmission") || "",
+  );
   const [engine, setEngine] = useState(searchParams.get("engine") || "");
-
-  // Note: For equipments, we collect booleans. The swagger doesn't enforce AC vs others, but mock structure implies them.
-  const [AC, setAC] = useState(searchParams.get("AC") === "true");
-  const [kitchen, setKitchen] = useState(searchParams.get("kitchen") === "true");
-  const [bathroom, setBathroom] = useState(searchParams.get("bathroom") === "true");
-  const [TV, setTV] = useState(searchParams.get("TV") === "true");
-  const [automatic, setAutomatic] = useState(searchParams.get("transmission") === "automatic");
 
   const handleSearch = () => {
     const params = new URLSearchParams();
@@ -26,58 +23,98 @@ export default function FilterSidebar() {
     if (location) params.set("location", location);
     if (form) params.set("form", form);
     if (engine) params.set("engine", engine);
-    
-    // Derived from the 'Automatic' equipment toggle or select
-    if (automatic) params.set("transmission", "automatic");
-    else if (transmission) params.set("transmission", transmission);
-
-    if (AC) params.set("AC", "true");
-    if (kitchen) params.set("kitchen", "true");
-    if (bathroom) params.set("bathroom", "true");
-    if (TV) params.set("TV", "true");
+    if (transmission) params.set("transmission", transmission);
 
     router.push(`/catalog?${params.toString()}`);
+  };
+
+  const handleClearFilters = () => {
+    setLocation("");
+    setForm("");
+    setTransmission("");
+    setEngine("");
+    router.push("/catalog");
   };
 
   return (
     <div className={css.sidebar}>
       <div className={css.locationGroup}>
         <label className={css.label}>Location</label>
-        <div className={css.inputWrapper}>
-          <input 
-             className={css.input} 
-             type="text" 
-             placeholder="City" 
-             value={location}
-             onChange={(e) => setLocation(e.target.value)}
-          />
-        </div>
+        <LocationInputWithMap
+          location={location}
+          setLocation={setLocation}
+          className={css.input}
+          inputWrapperClassName={css.inputWrapper}
+        />
       </div>
 
       <div className={css.filtersGroup}>
         <p className={css.filtersTitle}>Filters</p>
 
-        <div className={css.equipmentGroup}>
-          <h3 className={css.groupTitle}>Vehicle equipment</h3>
-          <div className={css.featuresGrid}>
-            <button className={`${css.featureBtn} ${AC ? css.active : ""}`} onClick={() => setAC(!AC)}>❄️ AC</button>
-            <button className={`${css.featureBtn} ${automatic ? css.active : ""}`} onClick={() => setAutomatic(!automatic)}>🚐 Automatic</button>
-            <button className={`${css.featureBtn} ${kitchen ? css.active : ""}`} onClick={() => setKitchen(!kitchen)}>🍳 Kitchen</button>
-            <button className={`${css.featureBtn} ${TV ? css.active : ""}`} onClick={() => setTV(!TV)}>📺 TV</button>
-            <button className={`${css.featureBtn} ${bathroom ? css.active : ""}`} onClick={() => setBathroom(!bathroom)}>🚿 Shower/WC</button>
+        <section className={css.filterSection}>
+          <h3 className={css.sectionTitle}>Camper form</h3>
+          <div className={css.optionsList}>
+            {["alcove", "panel_van", "fully_integrated", "semi_integrated"].map((val) => (
+              <label key={val} className={css.optionLabel}>
+                <input
+                  type="radio"
+                  name="form"
+                  checked={form === val}
+                  onChange={() => setForm(val)}
+                  className={css.radioInput}
+                />
+                <span>{val.split("_").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ")}</span>
+              </label>
+            ))}
           </div>
-        </div>
+        </section>
 
-        <div className={css.typeGroup}>
-          <h3 className={css.groupTitle}>Vehicle type</h3>
-          <div className={css.featuresGrid}>
-            <button className={`${css.featureBtn} ${form === "panel_van" ? css.active : ""}`} onClick={() => setForm(form === "panel_van" ? "" : "panel_van")}>🚐 Van</button>
-            <button className={`${css.featureBtn} ${form === "fully_integrated" ? css.active : ""}`} onClick={() => setForm(form === "fully_integrated" ? "" : "fully_integrated")}>🚐 Fully Integrated</button>
-            <button className={`${css.featureBtn} ${form === "alcove" ? css.active : ""}`} onClick={() => setForm(form === "alcove" ? "" : "alcove")}>🚐 Alcove</button>
+        <section className={css.filterSection}>
+          <h3 className={css.sectionTitle}>Engine</h3>
+          <div className={css.optionsList}>
+            {["diesel", "petrol", "hybrid", "electric"].map((val) => (
+              <label key={val} className={css.optionLabel}>
+                <input
+                  type="radio"
+                  name="engine"
+                  checked={engine === val}
+                  onChange={() => setEngine(val)}
+                  className={css.radioInput}
+                />
+                <span>{val.charAt(0).toUpperCase() + val.slice(1)}</span>
+              </label>
+            ))}
           </div>
-        </div>
+        </section>
 
-        <button className={css.searchBtn} onClick={handleSearch}>Search</button>
+        <section className={css.filterSection}>
+          <h3 className={css.sectionTitle}>Transmission</h3>
+          <div className={css.optionsList}>
+            {["automatic", "manual"].map((val) => (
+              <label key={val} className={css.optionLabel}>
+                <input
+                  type="radio"
+                  name="transmission"
+                  checked={transmission === val}
+                  onChange={() => setTransmission(val)}
+                  className={css.radioInput}
+                />
+                <span>{val.charAt(0).toUpperCase() + val.slice(1)}</span>
+              </label>
+            ))}
+          </div>
+        </section>
+
+
+        <div className={css.actions}>
+          <button className={css.searchBtn} onClick={handleSearch}>
+            Search
+          </button>
+          <button className={css.clearBtn} onClick={handleClearFilters}>
+            <IoMdClose />
+            Clear filters
+          </button>
+        </div>
       </div>
     </div>
   );

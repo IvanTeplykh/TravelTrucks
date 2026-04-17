@@ -1,6 +1,10 @@
 .sidebar {
   display: flex;
   flex-direction: column;
+  border-radius: 20px;
+  padding: 24px;
+  width: 360px;
+  background: var(--background-footer);
 }
 
 .locationGroup {
@@ -19,58 +23,73 @@
 }
 
 .input {
-  width: 100%;
-  padding: 18px 18px 18px 44px;
+  border-radius: 12px;
+  padding: 18px 18px 18px 48px;
+  width: 312px;
+  height: 56px;
   background-color: var(--background);
   border: none;
-  border-radius: 10px;
   font-size: 16px;
   color: var(--primary-text);
-  background-color: var(--background-footer);
   outline: none;
 }
 
 .filtersTitle {
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--primary-text);
-  margin-bottom: 14px;
-}
-
-.groupTitle {
-  font-size: 20px;
   font-weight: 600;
-  color: var(--primary-text);
+  font-size: 20px;
+  line-height: 120%;
+  color: var(--main);
   margin-bottom: 24px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border-color);
 }
 
-.featuresGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
+.filterSection:not(:last-child) {
   margin-bottom: 32px;
 }
 
-.featureBtn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  height: 96px;
-  border: 1px solid var(--border-color);
-  border-radius: 10px;
-  background-color: transparent;
+.sectionTitle {
+  font-weight: 400;
   font-size: 16px;
-  font-weight: 500;
-  color: var(--primary-text);
-  transition: border-color 0.2s;
+  line-height: 150%;
+  color: var(--light-text);
+  margin-bottom: 8px;
 }
 
-.featureBtn:hover, .active {
-  border-color: var(--brand-color);
+.optionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.optionLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--primary-text);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.optionLabel:hover {
+  color: var(--brand-color);
+}
+
+.radioInput,
+.checkboxInput {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: var(--brand-color);
+  border: 1px solid var(--secondary-text);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 48px;
 }
 
 .searchBtn {
@@ -78,16 +97,36 @@
   align-items: center;
   justify-content: center;
   border-radius: 200px;
-  width: 173px;
+  width: 312px;
   height: 56px;
   background-color: var(--brand-color);
   color: var(--background);
   font-size: 16px;
   font-weight: 500;
-  margin-top: 32px;
   transition: background-color 0.2s;
 }
 
 .searchBtn:hover {
   background-color: var(--brand-hover);
+}
+
+.clearBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 200px;
+  width: 312px;
+  height: 56px;
+  background-color: var(--background);
+  color: var(--main-text);
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 16px;
+  transition: border-color 0.2s;
+  border: 1px solid var(--border-color);
+}
+
+.clearBtn:hover {
+  border-color: var(--brand-color);
 }
