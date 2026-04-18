@@ -1,6 +1,5 @@
-import Link from "next/link";
 import css from "./Home.module.css";
-import { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Not Found | TravelTrucks",

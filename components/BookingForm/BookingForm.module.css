@@ -1,8 +1,9 @@
 .formContainer {
-  padding: 44px 24px;
   border: 1px solid var(--border-color);
-  border-radius: 10px;
-  background-color: var(--background);
+  border-radius: 16px;
+  padding: 44px;
+  width: 641px;
+  min-height: 382px;
 }
 
 .title {
@@ -28,7 +29,8 @@
   position: relative;
 }
 
-.input, .textarea {
+.input,
+.textarea {
   width: 100%;
   padding: 18px;
   background-color: var(--background);
@@ -57,15 +59,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 200px;
-  width: 173px;
-  height: 56px;
   margin-top: 10px;
   background-color: var(--brand-color);
   color: var(--background);
   font-weight: 500;
   font-size: 16px;
   transition: background-color 0.2s;
+  border-radius: 200px;
+  padding: 16px 60px;
+  width: 527px;
+  height: 56px;
+  align-self: center;
 }
 
 .submitBtn:hover {
