@@ -45,7 +45,8 @@ export default function CamperDetailsPage() {
   const bookingMutation = useMutation({
     mutationFn: (data: any) => bookCamper(id, data),
     onSuccess: (data) => {
-      const successMessage = data?.message || "Booking request sent successfully!";
+      const successMessage =
+        data?.message || "Booking request sent successfully!";
       toast.success(successMessage);
     },
     onError: () => {
@@ -168,7 +169,14 @@ export default function CamperDetailsPage() {
             <ul className={css.detailsAttributesList}>
               <li>
                 <span>Form</span>
-                <span>{camper.form}</span>
+                <span>
+                  {camper.form
+                    .replace(/_/g, " ")
+                    .replace(/([A-Z])/g, " $1")
+                    .trim()
+                    .toLowerCase()
+                    .replace(/^./, (str) => str.toUpperCase())}
+                </span>
               </li>
               <li>
                 <span>Length</span>

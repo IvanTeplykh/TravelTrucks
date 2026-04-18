@@ -3,18 +3,9 @@ import css from "./CamperCard.module.css";
 import Link from "next/link";
 import { FaStar } from "react-icons/fa6";
 import { CiMap } from "react-icons/ci";
-import {
-  TbManualGearbox,
-  TbSnowflake,
-  TbToolsKitchen2,
-  TbFridge,
-  TbMicrowave,
-  TbFlame,
-  TbDroplets,
-} from "react-icons/tb";
+import { TbManualGearbox } from "react-icons/tb";
 import { BsFuelPump } from "react-icons/bs";
-import { PiShower, PiTelevision } from "react-icons/pi";
-import { MdOutlineRadio } from "react-icons/md";
+import { IoMdCar } from "react-icons/io";
 
 interface Props {
   camper: Camper;
@@ -57,67 +48,22 @@ export default function CamperCard({ camper }: Props) {
 
         <div className={css.features}>
           <div className={css.featureBadge}>
-            <TbManualGearbox size={20} />
+            <TbManualGearbox size={16} />
             {camper.transmission}
           </div>
           <div className={css.featureBadge}>
-            <BsFuelPump size={20} />
+            <BsFuelPump size={16} />
             {camper.engine}
           </div>
-          {camper.amenities?.includes("ac") && (
-            <div className={css.featureBadge}>
-              <TbSnowflake size={20} />
-              AC
-            </div>
-          )}
-          {camper.amenities?.includes("kitchen") && (
-            <div className={css.featureBadge}>
-              <TbToolsKitchen2 size={20} />
-              Kitchen
-            </div>
-          )}
-          {camper.amenities?.includes("bathroom") && (
-            <div className={css.featureBadge}>
-              <PiShower size={20} />
-              Bathroom
-            </div>
-          )}
-          {camper.amenities?.includes("radio") && (
-            <div className={css.featureBadge}>
-              <MdOutlineRadio size={20} />
-              Radio
-            </div>
-          )}
-          {camper.amenities?.includes("tv") && (
-            <div className={css.featureBadge}>
-              <PiTelevision size={20} />
-              TV
-            </div>
-          )}
-          {camper.amenities?.includes("refrigerator") && (
-            <div className={css.featureBadge}>
-              <TbFridge size={20} />
-              Refrigerator
-            </div>
-          )}
-          {camper.amenities?.includes("microwave") && (
-            <div className={css.featureBadge}>
-              <TbMicrowave size={20} />
-              Microwave
-            </div>
-          )}
-          {camper.amenities?.includes("gas") && (
-            <div className={css.featureBadge}>
-              <TbFlame size={20} />
-              Gas
-            </div>
-          )}
-          {camper.amenities?.includes("water") && (
-            <div className={css.featureBadge}>
-              <TbDroplets size={20} />
-              Water
-            </div>
-          )}
+          <div className={css.featureBadge} style={{ textTransform: "none" }}>
+            <IoMdCar size={16} />
+            {camper.form
+              .replace(/_/g, " ")
+              .replace(/([A-Z])/g, " $1")
+              .trim()
+              .toLowerCase()
+              .replace(/^./, (str) => str.toUpperCase())}
+          </div>
         </div>
 
         <Link
